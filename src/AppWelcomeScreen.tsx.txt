@@ -1,0 +1,62 @@
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Image, View, Text, useWindowDimensions } from 'react-native';
+import { useDeviceOrientation } from '@react-native-community/hooks';
+
+export default function App() {
+    //console.log(useWindowDimensions());
+    //const orientation = useDeviceOrientation();
+    //console.log(orientation);
+
+    return (
+        <View
+            style={{
+                flex: 1,
+            }}
+        >
+            <View style={styles.bgImageWrapper}>
+                <Image
+                    source={{
+                        uri: 'https://picsum.photos/200/300',
+                    }}
+                    style={styles.bgImage}
+                />
+
+                <View style={[styles.button, { backgroundColor: 'tomato' }]} />
+                <View style={[styles.button, { backgroundColor: 'grey' }]} />
+            </View>
+            <Image source={require('../assets/favicon.png')} style={styles.logoImage} />
+            <Text style={styles.welcome}>Welcome to React Native!</Text>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    bgImageWrapper: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+    },
+    bgImage: {
+        flex: 14,
+        resizeMode: 'stretch',
+    },
+    logoImage: {
+        width: 50,
+        height: 50,
+        alignSelf: 'center',
+        marginTop: 50,
+    },
+    button: {
+        flex: 1,
+        width: '100%',
+    },
+    welcome: {
+        fontSize: 20,
+        color: 'red',
+        textAlign: 'center',
+        marginTop: 5,
+    },
+});

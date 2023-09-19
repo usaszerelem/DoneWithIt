@@ -1,0 +1,61 @@
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, Button, Alert } from 'react-native';
+
+export default function App() {
+    console.log('App Launched');
+
+    function handlePress() {
+        console.log('Control clicked');
+    }
+
+    return (
+        <SafeAreaView style={styles.container}>
+            <Text onPress={handlePress}>Martin was here.</Text>
+            <Pressable onPress={() => console.log('Kitty was pressed')}>
+                <Image
+                    source={{
+                        uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+                    }}
+                    style={{ width: 200, height: 200 }}
+                />
+            </Pressable>
+            <Pressable onPress={() => console.log('favicon was pressed.')}>
+                <Image source={require('../assets/favicon.png')} style={{ width: 50, height: 50 }} />
+            </Pressable>
+            <Pressable>
+                <Image
+                    source={{
+                        width: 200,
+                        height: 300,
+                        uri: 'https://picsum.photos/200/300',
+                    }}
+                />
+            </Pressable>
+            <Button
+                color="orange"
+                title="Click Me"
+                onPress={() =>
+                    Alert.alert('My Title', 'Button clicked', [
+                        { text: 'Yes', onPress: () => console.log('Yes') },
+                        { text: 'No', onPress: () => console.log('No') },
+                    ])
+                }
+            />
+            <StatusBar style="auto" />
+        </SafeAreaView>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center', // Horizontal centering
+        justifyContent: 'center', // Vertical centering
+    },
+    scrollView: {
+        backgroundColor: 'pink',
+        marginHorizontal: 20,
+    },
+});

@@ -1,0 +1,74 @@
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, SafeAreaView, View, useWindowDimensions } from 'react-native';
+import { useDeviceOrientation } from '@react-native-community/hooks';
+
+export default function App() {
+    console.log(useWindowDimensions());
+    const orientation = useDeviceOrientation();
+    console.log(orientation);
+
+    return (
+        <View
+            style={{
+                backgroundColor: 'white',
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'center',
+                flexWrap: 'wrap',
+            }}
+        >
+            <View
+                style={{
+                    backgroundColor: 'dodgerblue',
+                    width: 100,
+                    height: 300,
+                }}
+            />
+            <View
+                style={{
+                    backgroundColor: 'gold',
+                    width: 100,
+                    height: 100,
+                }}
+            />
+            <View
+                style={{
+                    backgroundColor: 'tomato',
+                    width: 100,
+                    height: 100,
+                }}
+            />
+            <View
+                style={{
+                    backgroundColor: 'grey',
+                    width: 100,
+                    height: 100,
+                }}
+            />
+            <View
+                style={{
+                    backgroundColor: 'yellowgreen',
+                    width: 100,
+                    height: 100,
+                }}
+            />
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center', // Horizontal centering
+        justifyContent: 'center', // Vertical centering
+    },
+    viewStyle: {
+        backgroundColor: 'dodgerblue',
+        width: '100%',
+        height: '90%',
+    },
+});
